@@ -13,8 +13,7 @@ public class NodePositionList<E> implements PositionList<E> {
 		header.setNext(trailer); // faz a cabeça e a cauda apontarem uma para a outra
 	}
 	
-	
-	// Insere um elemento após um dado elemento da lista.
+
 	public void makeFirst(Position<E> p) throws InvalidPositionException {
 		DNode<E> v = checkPosition(p);
 		
@@ -33,6 +32,20 @@ public class NodePositionList<E> implements PositionList<E> {
 		
 	}
 	
+	public NodePositionList<E> toReverse() {
+		
+		NodePositionList<E> positionReverse = new NodePositionList<E>();
+
+		for(E node : this){
+			positionReverse.addFirst(node);
+		}
+		
+		// posso dar um return positionReverse
+		// ou pegar os header e a trail do positionReverse
+		// e implantar no atual
+		
+		return positionReverse;
+	}
 	
 	// Verifica se a posição é válida para esta lista e a converte para DNode se for válida
 	protected DNode<E> checkPosition(Position<E> p) throws InvalidPositionException {
@@ -140,6 +153,9 @@ public class NodePositionList<E> implements PositionList<E> {
 	// Retorna o iterator a partir do ElemenIterator.
 	public Iterator<E> iterator() { return new ElementIterator<E>(this); }
 	public String toString() { return toString(this); }
+
+
+	
 }
 
 	
