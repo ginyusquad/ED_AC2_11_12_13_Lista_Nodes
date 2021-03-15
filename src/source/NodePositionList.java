@@ -48,7 +48,7 @@ public class NodePositionList<E> implements PositionList<E> {
 	}
 	
 	// Verifica se a posição é válida para esta lista e a converte para DNode se for válida
-	protected DNode<E> checkPosition(Position<E> p) throws InvalidPositionException {
+	private DNode<E> checkPosition(Position<E> p) throws InvalidPositionException {
 		if (p == null) throw new InvalidPositionException("Null position passed to NodeList");
 		if (p == header) throw new InvalidPositionException("The header node is not a valid position");
 		if (p == trailer) throw new InvalidPositionException("The trailer node is not a valid position");

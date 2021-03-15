@@ -4,7 +4,8 @@ public class DNode<E> implements Position<E> {
 
 	private DNode<E> prev, next; // Referência para os nodos anterior e posterior
 	private E element; // Elemento armazenado nesta posição
-
+	PositionList<E> listNodes = null;
+	
 	public DNode(DNode<E> newPrev, DNode<E> newNext, E elem) {
 		prev = newPrev;
 		next = newNext;
@@ -24,6 +25,14 @@ public class DNode<E> implements Position<E> {
 	public void setNext(DNode<E> newNext) { next = newNext; }
 	public void setPrev(DNode<E> newPrev) { prev = newPrev; }
 	public void setElement(E newElement) { element = newElement; }
+	@Override
+	public void setListNodes(PositionList<E> lista) {
+		this.listNodes = lista;
+	}
+	@Override
+	public PositionList<E> getListNodes() {
+		return listNodes;
+	}
 	
 
 }
